@@ -10,7 +10,7 @@ postsRouter.get("/posts", async(req, res)=>{
 })
 
 //Device Name  MOBILE
-postsRouter.get("/posts?device=MOBILE",async(req,res) =>{
+postsRouter.get("/posts/mob/",async(req,res) =>{
     const posts = await Posts.find({device:"MOBILE"})
     res.send(posts);
 })
