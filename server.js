@@ -1,14 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config()
-const {postsRouter} = require("./routes/posts.routes")
+const {postsRouter} = require("./routes/Posts.routes")
 const connection =require("./configs/db");
-const { UserModel } = require("./models/User.moel");
-const { Posts} = require("./models/Posts.model");
+const { UserModel } = require("./models/Users.model");
+const { Posts } = require("./models/Posts.model");
 const app = express();
 
 app.use(express.json());
-
 
 app.get("/", (req, res)=>{
     
@@ -28,7 +27,7 @@ app.post("/users/register", async(req, res)=>{
             }
             const user = new UserModel({email, password: hash});
             user.save();
-            return res.send("Registering userData is Successfull")
+            return res.send("Registering userData is Successful")
         })
 
     }catch(err){
